@@ -1,25 +1,146 @@
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <header>
-            <div id="menu-bar" class="fa fa-bars"></div>
-            <a href="#" class="logo">Logo</a>
-            <nav class="navbar">
-                <a href="#home">Home</a>
-                <a href="#product">Product</a>
-                <a href="#fearured">Fearured</a>
-                <a href="#blog">blog</a>
-                <a href="#news">news</a>
-            </nav>
-            <div class="icons">
-                <a href="#"><i class="fa fa-heart"></i></a>
-                <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                <a href="#"><i class="fa fa-user"></i></a>
+        <div class="header" id="main-header">
+            <div class="container">
+                <div class="navbar">
+                    <div class="logo">
+                        <a href="#"><img src="Images/trans3.png" width="125px" alt></a>
+                    </div>
+                    <div class="cont">
+                        <div class="username" id="message">
+                            <p><span id="userName"></span></p>
+                        </div>
+                        <div>
+                            <nav>
+                                <ul id="MenuItems">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="products.html">Products</a></li>
+                                    <li><a href="">Contacts</a></li>
+                                    <li><a href="account.html">Account</a></li>
+                                    <li><button class="btn" id="myBtn"><i class="fa fa-user"></i></button></li>
+                                    <li><button class="btn" id="signOut"><i class="fa fa-sign-out"></i></button>
+                                    </li>
+                                </ul>
+                                <a id="myBtn2">
+                                    <div id="cartAmount" class="cartAmount">0</div><img src="Images/cart1.png" alt
+                                        width="30px" height="30px">
+                                </a>
+                                <img src="Images/menu.png" alt="" class="menu-icon" onclick="menutoggle()">
+                            </nav>
+                        </div>
+    
+                    </div>
+                </div>
             </div>
-        </header>
+        </div>
+        <div id="myModal" class="modal">
+    
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Account</h2>
+                </div>
+                <div class="form-container">
+                    <div class="form-btn">
+                        <span onclick="login()">Login</span>
+                        <span onclick="register()">Register</span>
+                        <span onclick="signin()">Social</span>
+                        <hr id="Indicator">
+                    </div>
+                    <form action="" id="loginform" class="signin">
+                        <input type="email" placeholder="Enter Email">
+                        <input type="password" placeholder="Enter Password">
+                        <button type="submit" class="btn">Login</button>
+                        <a href="">Forgot Password</a>
+                    </form>
+                    <form action="" id="registrationform" class="signup">
+                        <input id="name" type="text" placeholder="Name">
+                        <input id="email" type="email" placeholder="Email">
+                        <input id="password" type="password" placeholder="Password">
+                        <button id="btn" type="submit" class="btn">Register</button>
+                    </form>
+    
+                    <div class="socials" id="socials">
+                        <button class="btn" id="signInGoogle"> <i class="fa fa-google"
+                                style="font-size: 30px; text-align: left;"></i>
+                            <div>Sign in with Google </div>
+                        </button>
+                        <button class="btn" id="signInFacebook"><i class="fa fa-facebook" style="font-size: 30px;"></i>
+                            <div>Sign in with Facebook </div>
+                        </button>
+                        <button class="btn" id="signInTwitter"><i class="fa-brands fa-x-twitter"
+                                style="font-size: 30px;"></i>
+                            <div>Sign in with X </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="myModal2" class="modal2">
+    
+            <!-- Modal content -->
+            <div class="modal-content2" id="modal-content2">
+                <div class="modal2-header">
+                    <span class="close2">&times;</span>
+                    <h2>Cart</h2>
+                </div>
+                <div class="small-container cart-page">
+                    <div class="cart-list" id="cart-list">
+                        <table>
+                            <thead class="header-container">
+                                <tr>
+                                    <th class="first-column">Product</th>
+                                    <th>Quantity</th>
+                                    <th class="highlight">Sub-total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="cart-info">
+                                            <img src="Images/exclusive.png" alt="">
+                                            <div>
+                                                <p>Fridge</p>
+                                                <small>Price: price </small><br>
+                                                <a href="">Remove</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="display: flex;">
+                                        <a class="inc" onclick="increment()">+</a>
+                                        <h4 id="counter">0</h4>
+                                        <a class="dec" onclick="decrement()">-</a>
+                                    </td>
+                                    <td>price</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="total-price" id="total-price">
+                            <table>
+                                <tr>
+                                    <td>Subtotal</td>
+                                    <td>price</td>
+                                </tr>
+                                <tr>
+                                    <td>Tax</td>
+                                    <td>price</td>
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>price</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!--end header-->
         <section class="home" id="home">
             <div class="slide-container active">
@@ -30,7 +151,7 @@
                         <p>
                             Nike Metcon shoes are a solid choice for individuals engaged in cross-training, functional fitness, or weightlifting. They excel in providing stability and durability during workouts, making them a popular option among fitness enthusiasts.
                         </p>
-                        <a href="#" class="btn">add to cart</a>
+                        <a href="cart.html" class="btn">add to cart</a>
                     </div>
                     <div class="image">
                         <img src="img/slide/1.png" class="shoe">
@@ -45,7 +166,7 @@
                         <p>
                             "The comfort level of Nike Metcon shoes is outstanding. They offer great arch support and a snug fit without being too tight. The cushioning is just right for long workouts."
                         </p>
-                        <a href="#" class="btn">add to card</a>
+                        <a href="cart.html" class="btn">add to card</a>
                     </div>
                     <div class="image">
                         <img src="img/slide/2.png" class="shoe">
@@ -60,7 +181,7 @@
                         <p>
                             One of the standout features of Nike Metcons is their stability. Whether you're lifting heavy weights or doing box jumps, these shoes provide excellent support and prevent foot rolling."
                         </p>
-                        <a href="#" class="btn">add to cart</a>
+                        <a href="cart.html" class="btn">add to cart</a>
                     </div>
                     <div class="image">
                         <img src="img/slide/3.png" class="shoe">
@@ -75,7 +196,7 @@
                         <p>
                             L"Metcon shoes have good ventilation. Even during intense workouts, my feet stay cool and comfortable. No more sweaty and uncomfortable feet at the gym."
                         </p>
-                        <a href="#" class="btn">add to cart</a>
+                        <a href="cart.html" class="btn">add to cart</a>
                     </div>
                     <div class="image">
                         <img src="img/slide/4.png" class="shoe">
@@ -94,7 +215,7 @@
                     <div class="icons">
                         <a href="#" class="fa fa-heart"></a>
                         <a href="#" class="fa fa-share"></a>
-                        <a href="#" class="fa fa-eye"></a>
+                        <a href="#cart.html"><i class="fa fa-shopping-cart"></i></a>
                     </div>
                     <div class="content">
                         <img src="img/product4/1.jpg" alt="">
@@ -113,7 +234,7 @@
                     <div class="icons">
                         <a href="#" class="fa fa-heart"></a>
                         <a href="#" class="fa fa-share"></a>
-                        <a href="#" class="fa fa-eye"></a>
+                      <a href="#cart.html"><i class="fa fa-shopping-cart"></i></a>
                     </div>
                     <div class="content">
                         <img src="img/product4/2.jpg" alt="">
@@ -132,7 +253,7 @@
                     <div class="icons">
                         <a href="#" class="fa fa-heart"></a>
                         <a href="#" class="fa fa-share"></a>
-                        <a href="#" class="fa fa-eye"></a>
+                      <a href="#cart.html"><i class="fa fa-shopping-cart"></i></a>
                     </div>
                     <div class="content">
                         <img src="img/product4/3.jpg" alt="">
@@ -151,7 +272,7 @@
                     <div class="icons">
                         <a href="#" class="fa fa-heart"></a>
                         <a href="#" class="fa fa-share"></a>
-                        <a href="#" class="fa fa-eye"></a>
+                      <a href="#cart.html"><i class="fa fa-shopping-cart"></i></a>
                     </div>
                     <div class="content">
                         <img src="img/product4/5.jpg" alt="">
@@ -170,7 +291,7 @@
                     <div class="icons">
                         <a href="#" class="fa fa-heart"></a>
                         <a href="#" class="fa fa-share"></a>
-                        <a href="#" class="fa fa-eye"></a>
+                      <a href="#cart.html"><i class="fa fa-shopping-cart"></i></a>
                     </div>
                     <div class="content">
                         <img src="img/product4/7.png" alt="">
@@ -189,7 +310,7 @@
                     <div class="icons">
                         <a href="#" class="fa fa-heart"></a>
                         <a href="#" class="fa fa-share"></a>
-                        <a href="#" class="fa fa-eye"></a>
+                      <a href="#cart.html"><i class="fa fa-shopping-cart"></i></a>
                     </div>
                     <div class="content">
                         <img src="img/product4/8.png" alt="">
@@ -354,12 +475,508 @@
             </div>
         </section>
         <!--end news-->
-        <section class="cridet" id="cridet">
+        <section class="credit" id="credit">
             <div class="box">
-                <h3>all reserved by codeskill</h3>
+                <h3>all rights reserved by codeskill</h3>
             </div>
         </section>
     </body>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        var modal2 = document.getElementById("myModal2");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+        var btn2 = document.getElementById("myBtn2");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        var span2 = document.getElementsByClassName("close2")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+        btn2.onclick = function () {
+            modal2.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        span2.onclick = function () {
+            modal2.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+            else if (event.target == modal2) {
+                modal2.style.display = "none";
+            };
+        }
+    </script>
+    <script>
+        var loginform = document.getElementById("loginform");
+        var registrationform = document.getElementById("registrationform");
+        var socials = document.getElementById("socials");
+        var Indicator = document.getElementById("Indicator");
+
+        function register() {
+            registrationform.style.transform = "translateX(0px)";
+            loginform.style.transform = "translateX(0px)";
+            socials.style.transform = "translateX(0px)";
+            Indicator.style.transform = "translateX(100px)";
+        }
+        function login() {
+            registrationform.style.transform = "translateX(400px)";
+            loginform.style.transform = "translateX(400px)";
+            socials.style.transform = "translateX(400px)";
+            Indicator.style.transform = "translateX(0px)";
+        }
+        function signin() {
+            registrationform.style.transform = "translateX(-400px)";
+            loginform.style.transform = "translateX(-400px)";
+            socials.style.transform = "translateX(-400px)";
+            Indicator.style.transform = "translateX(210px)";
+        }
+    </script>
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+
+        import { getFirestore, query, limit, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+
+        import {
+            createUserWithEmailAndPassword, signInWithEmailAndPassword,
+            getAuth, GoogleAuthProvider, TwitterAuthProvider, FacebookAuthProvider,
+            signInWithPopup, signOut, onAuthStateChanged
+        }
+            from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+
+            const firebaseConfig = {
+  apiKey: "AIzaSyBOoan_gaHo82SZmx8UP2flJ59CPEhnk-0",
+  authDomain: "project-5fa4d.firebaseapp.com",
+  projectId: "project-5fa4d",
+  storageBucket: "project-5fa4d.appspot.com",
+  messagingSenderId: "482300288839",
+  appId: "1:482300288839:web:4de33b04616c4fac6ab662",
+  measurementId: "G-D701YBJP1H"
+};
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const db = getFirestore(app);
+        const googleProvider = new GoogleAuthProvider();
+        const twitterProvider = new TwitterAuthProvider();
+        const facebookProvider = new FacebookAuthProvider();
+
+        const mModal2 = document.getElementById("myModal2");
+        const mModal = document.getElementById("myModal");
+        const mButton = document.getElementById("myBtn");
+        const signInButton = document.getElementById("signInGoogle");
+        const signInTw = document.getElementById("signInTwitter");
+        const signInFb = document.getElementById("signInFacebook")
+        const signOutButton = document.getElementById("signOut");
+        const message = document.getElementById("message");
+        const userName = document.getElementById("userName");
+        const cartAmount = document.getElementById("cartAmount");
+
+
+        signOutButton.style.display = "none";
+        message.style.display = "none";
+
+        const querySnapshot = await getDocs(query(
+            collection(db, "TVs"),
+            limit(3) // Adjust the number as needed
+        ));
+        const featuredProducts = document.getElementById('featured');
+
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            const sanitizedProductId = encodeURIComponent(doc.id);
+            featuredProducts.innerHTML += `<div class="col-3" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);">
+                    <div>
+                        <div style="padding: 10px 10px 10px 10px;">
+                        <img src="${data.image1}" alt=""><br>
+                        <a href="product-details.html?id=${sanitizedProductId}"><h3>${doc.id}</h3></a><br>
+                    </div>
+                    </div>
+               <br>
+               <div class="card">
+                <div style="padding: 10px 10px 10px 10px;">
+                    <div>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div><br>
+                <h5>KES ${data.Price.toLocaleString()}</h5></div>
+                </div>
+                <a href="" class="btn-c"><img src="Images/cart3.png" alt
+                 width="10px" height="30px"><br>Add to cart</a>
+                </div>
+                </div>
+            </div>`
+        });
+        const querySnapshot1 = await getDocs(query(
+            collection(db, "TVs"),
+            limit(3) // Adjust the number as needed
+        ));
+        const latestTVs = document.getElementById('latest-tv');
+
+        querySnapshot1.forEach((doc) => {
+            const sanitizedProductId = encodeURIComponent(doc.id);
+            const data = doc.data();
+            latestTVs.innerHTML += `<div class="col-3" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);">
+                    <div>
+                        <div style="padding: 10px 10px 10px 10px;">
+                        <img src="${data.image1}" alt=""><br>
+                        <a href="product-details.html?id=${sanitizedProductId}"><h3>${doc.id}</h3></a><br>
+                    </div>
+                    </div>
+               <br>
+               <div class="card">
+                <div style="padding: 10px 10px 10px 10px;">
+                    <div>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div><br>
+                <h5>KES ${data.Price.toLocaleString()}</h5></div>
+                </div>
+                <a href="" class="btn-c"><img src="Images/cart3.png" alt
+                 width="10px" height="30px"><br>Add to cart</a>
+                </div>
+                </div>
+            </div>`
+        });
+        const querySnapshot2 = await getDocs(query(
+            collection(db, "Phones"),
+            limit(3) // Adjust the number as needed
+        ));
+        const latestPhones = document.getElementById('latest-phone');
+
+        querySnapshot2.forEach((doc) => {
+            const sanitizedProductId = encodeURIComponent(doc.id);
+            const data = doc.data();
+            latestPhones.innerHTML += `<div class="col-3" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);">
+                    <div>
+                        <div style="padding: 10px 10px 10px 10px;">
+                        <img src="${data.image1}" alt=""><br>
+                        <a href="product-details.html?id=${sanitizedProductId}"><h3>${doc.id}</h3></a><br>
+                    </div>
+                    </div>
+               <br>
+               <div class="card">
+                <div style="padding: 10px 10px 10px 10px;">
+                    <div>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div><br>
+                <h5>KES ${data.Price.toLocaleString()}</h5></div>
+                </div>
+                <a href="" class="btn-c"><img src="Images/cart3.png" alt
+                 width="10px" height="30px"><br>Add to cart</a>
+                </div>
+                </div>
+            </div>`
+        });
+        const querySnapshot3 = await getDocs(query(
+            collection(db, "Fridges"),
+            limit(3) // Adjust the number as needed
+        ));
+        const latestFridges = document.getElementById('latest-fridge');
+
+        querySnapshot3.forEach((doc) => {
+            const sanitizedProductId = encodeURIComponent(doc.id);
+            const data = doc.data();
+            latestFridges.innerHTML += `<div class="col-3" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);">
+                    <div>
+                        <div style="padding: 10px 10px 10px 10px;">
+                        <img src="${data.image1}" alt=""><br>
+                        <a href="product-details.html?id=${sanitizedProductId}"><h3>${doc.id}</h3></a><br>
+                    </div>
+                    </div>
+               <br>
+               <div class="card">
+                <div style="padding: 10px 10px 10px 10px;">
+                    <div>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div><br>
+                <h5>KES ${data.Price.toLocaleString()}</h5></div>
+                </div>
+                <a href="" class="btn-c"><img src="Images/cart3.png" alt
+                 width="10px" height="30px"><br>Add to cart</a>
+                </div>
+                </div>
+            </div>`
+        });
+        const querySnapshot4 = await getDocs(query(
+            collection(db, "Fridges"),
+            limit(1) // Adjust the number as needed
+        ));
+        const latestOffer = document.getElementById('offer');
+
+        querySnapshot4.forEach((doc) => {
+            const data = doc.data();
+            latestOffer.innerHTML += `<div class="small-container">
+            <div class="row" >
+                <div class="col-2">
+                    <img src="${data.image6}" alt="" class="offer-img">
+                </div>
+                <div class="col-2">
+                    <p style="color: rgb(255, 204, 0)">Exclusively available at En-Garde Appliances</p>
+                    <h1>${doc.id}</h1>
+                    <h4>WAS<h4/>
+                    <h4><strike>KES 60,995</strike></h4>
+                    <h3>NOW</h3>
+                    <h3>KES ${data.Price.toLocaleString()}</h3><br>
+                    <small>${data.Details}</small><br>
+                    <a href="product-details.html?id=${doc.id}" class="btn" style="box-shadow: 0 4px 8px rgba(255, 204, 0, 0.7);">View Product &#8594;</a>
+                </div>
+                </div>
+        </div>`
+        });
+        const querySnapshot5 = await getDocs(query(
+            collection(db, "TVs"),
+            limit(1) // Adjust the number as needed
+        ));
+        const featuredCategoryTV = document.getElementById('category');
+
+        querySnapshot5.forEach((doc) => {
+            const data = doc.data();
+            featuredCategoryTV.innerHTML = `<div class="small-container-1"><div class="row">
+                <div class="col-3-cat" >
+                    <div style="display: flex">
+                        <img src="${data.image1}" alt="">
+                        <img src="${data.image2}" alt="">
+                        <img src="${data.image3}" alt="">
+                        <img src="${data.image4}" alt="">
+                        <img src="${data.image5}" alt="">
+                        </div>
+                    <a href="products.html?collection=TVs&brand=all"><h3>TVs</h3></a>
+                </div>
+            </div></div>`
+        });
+        const querySnapshot6 = await getDocs(query(
+            collection(db, "Phones"),
+            limit(1) // Adjust the number as needed
+        ));
+        const featuredCategoryPhone = document.getElementById('category');
+
+        querySnapshot6.forEach((doc) => {
+            const data = doc.data();
+            featuredCategoryPhone.innerHTML += `<div class="small-container-1"><div class="row">
+                <div class="col-3-cat" >
+                    <div style="display: flex">
+                        <img src="${data.image1}" alt="">
+                        <img src="${data.image2}" alt="">
+                        <img src="${data.image3}" alt="">
+                        <img src="${data.image4}" alt="">
+                        <img src="${data.image5}" alt="">
+                        </div>
+                    <a href="products.html?collection=Phones"><h3>Phones</h3></a>
+                </div>
+            </div></div>`
+        });
+        const querySnapshot7 = await getDocs(query(
+            collection(db, "Fridges"),
+            limit(1) // Adjust the number as needed
+        ));
+        const featuredCategoryFridge = document.getElementById('category');
+
+        querySnapshot7.forEach((doc) => {
+            const data = doc.data();
+            featuredCategoryFridge.innerHTML += `<div class="small-container-1"><div class="row">
+                <div class="col-3-cat">
+                    <div style="display: flex">
+                        <img src="${data.image1}" alt="">
+                        <img src="${data.image2}" alt="">
+                        <img src="${data.image3}" alt="">
+                        <img src="${data.image4}" alt="">
+                        <img src="${data.image5}" alt="">
+                        </div>
+                    <a href="products.html?collection=Fridges"><h3>Fridges</h3></a>
+                </div>
+            </div></div>`
+        });
+
+
+        const signupForm = document.querySelector('.signup')
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault()
+
+            const name = document.getElementById('name').value
+            const email = document.getElementById('email').value
+            const password = document.getElementById('password').value
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((cred) => {
+                    console.log('user created:', cred.user)
+                    signupForm.reset()
+
+                    updateProfile(cred.user, {
+                        displayName: name
+                    }).then(() => {
+                        console.log('Display name set:', name);
+                        const userName = document.querySelector('.username');
+                        userName.innerHTML = name;
+                    }).catch((error) => {
+                        console.error('Error setting display name:', error);
+                    });
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        })
+
+        const userSignIn = async () => {
+            signInWithPopup(auth, googleProvider)
+                .then((result) => {
+                    const user = result.user
+                    console.log(user);
+                }).catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message
+                })
+        }
+        const userSignInTw = async () => {
+            signInWithPopup(auth, twitterProvider)
+                .then((result) => {
+                    // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
+                    // You can use these server side with your app's credentials to access the Twitter API.
+                    const credential = TwitterAuthProvider.credentialFromResult(result);
+                    const token = credential.accessToken;
+                    const secret = credential.secret;
+
+                    // The signed-in user info.
+                    const user = result.user;
+                    // IdP data available using getAdditionalUserInfo(result)
+                    // ...
+                }).catch((error) => {
+                    // Handle Errors here.
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // The email of the user's account used.
+                    const email = error.customData.email;
+                    // The AuthCredential type that was used.
+                    const credential = TwitterAuthProvider.credentialFromError(error);
+                    // ...
+                });
+        }
+        const userSignInFb = async () => {
+            signInWithPopup(auth, facebookProvider)
+                .then((result) => {
+
+                    const credential = FacebookAuthProvider.credentialFromResult(result);
+                    const token = credential.accessToken;
+                    const secret = credential.secret;
+
+                    // The signed-in user info.
+                    const user = result.user;
+                    // IdP data available using getAdditionalUserInfo(result)
+                    // ...
+                }).catch((error) => {
+                    // Handle Errors here.
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // The email of the user's account used.
+                    const email = error.customData.email;
+                    // The AuthCredential type that was used.
+                    const credential = TwitterAuthProvider.credentialFromError(error);
+                    // ...
+                });
+        }
+
+        const userSignOut = async () => {
+            signOut(auth).then(() => {
+                alert("You have signed out successfully!");
+            }).catch((error) => { })
+        }
+
+        var cartButton = document.getElementById("myBtn2");
+
+        cartButton.addEventListener('click', function () {
+            // Check if the user is signed in
+            var user = auth.currentUser;
+
+            if (user) {
+                modal2.style.display = "block";
+            } else {
+                alert("You need to sign in first to access the cart!");
+                modal2.style.display = "none";
+            }
+        });
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                signOutButton.style.display = "block";
+                message.style.display = "block";
+                mButton.style.display = "none";
+                mModal.style.display = "none";
+                cartAmount.style.display = "none";
+
+                const providerLogo = user.providerData[0].providerId.split('.')[0]; // Extract the provider name (google, facebook, twitter)
+                let logoIconClass;
+
+                switch (providerLogo) {
+                    case "google":
+                        logoIconClass = "fa fa-google rotating-icon"; // Font Awesome class for Google icon
+                        break;
+                    case "facebook":
+                        logoIconClass = "fa fa-facebook rotating-icon"; // Font Awesome class for Facebook icon
+                        break;
+                    case "twitter":
+                        logoIconClass = "fa-brands fa-x-twitter rotating-icon"; // Font Awesome class for Twitter icon
+                        break;
+                    default:
+                        logoIconClass = "fa fa-envelope rotating-icon"; // Default user icon (You can change this to any other default icon)
+                        break;
+                }
+                userName.innerHTML = `
+  <div class="user-info" style="display: flex; align-items: center; justify-content: space-between">
+    <div class="user1-icon" style="margin-right: 10px; font-size: 30px;"><i class="fa fa-user"></i></div>
+    <div class="profile-picture-container" style="display: flex; align-items: center;">
+      <img src="${user.photoURL}" alt="Profile Picture" style="width: 40px; height: 40px; border-radius: 10px; margin-right: 0px;">
+    </div>
+    <div class="user-icon" style="margin-right: 10px; margin-left: 5px; font-size: 30px;"><i class="${logoIconClass}"></i></div>
+    <div class="username" style="margin-left: auto;">${user.displayName}</div>
+  </div>`;
+
+            } else {
+                signOutButton.style.display = "none";
+                message.style.display = "none";
+                mButton.style.display = "block";
+                cartAmount.style.display = "none";
+            }
+        });
+
+        signInButton.addEventListener('click', userSignIn);
+        signInTw.addEventListener('click', userSignInTw);
+        signInFb.addEventListener('click', userSignInFb);
+        signOutButton.addEventListener('click', userSignOut);
+
+    </script>
 </html>
 
 <script src="js/script.js"></script>

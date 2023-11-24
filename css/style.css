@@ -28,40 +28,383 @@ html{
     scroll-padding-top: 6rem;
     scroll-behavior: smooth;
 }
-header{
-    position: fixed;
+.header {
+    position: relative;
+    width: 100%;
     top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: #fff;
-    padding: 2rem 9%;
+    background: #000000;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    transition: height 0.3s ease;
+    transform: translateY(0);
+}
+
+.header .row {
+    margin-top: 70px;
+}
+.header .username {
+    text-align: right;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.header .navbar {
     display: flex;
     align-items: center;
+    padding: 20px;
     justify-content: space-between;
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
 }
-header .logo{
-    font-size: 2rem;
-    color: #000;
-    font-weight: 500;
+
+.header nav {
+    flex: 1;
+    text-align: right;
+} 
+.header #message {
+    background-color: rgb(255, 204, 0);
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 8px 20px;
+    margin: 30px 0;
+} 
+.header.shrink {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+    background: #000000;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    transition: height 1s ease;
+    transform: translateY(-5%);
 }
-header .navbar a{
-    font-size: 1.5rem;
-    color: #000;
-    margin: 0 2rem;
+.header.shrink .logo img{
+    height: 50px;
+    width: 70px;
 }
-header .navbar a:hover{
-    color: orangered;
+.header.shrink .row {
+    margin-top: 0px;
 }
-header .icons a{
-    font-size: 2rem;
-    color: #000;
-    margin-left: 1.5rem;
+
+.header.shrink .navbar {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    justify-content: space-between;
 }
-header .icons a:hover{
-    color: orangered;
+
+.header.shrink nav {
+    flex: 0;
+    text-align: right;
+    margin-top: -10px;
 }
+.header.shrink .user-icon, .user1-icon, .username{
+    display: none;
+}
+.heaader.shrink #message .username{
+    color: rgb(255, 204, 0);
+    background: #000000;
+}
+.header.shrink #message {
+    background-color: rgb(255, 204, 0);
+    font-size: 15px;
+    margin-left: 0;
+    flex: 1;
+    padding: 5px 5px 5px 5px;
+    margin-top: 18px;
+    margin-right: 10px;
+    margin-bottom: 0px;
+}
+.header.shrink .cont{
+    display: flex;
+} 
+nav ul {
+    display: inline-block;
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 15px;
+}
+a {
+    text-decoration: none;
+    color: rgb(255, 204, 0);
+}
+
+p {
+    color: #000000;
+}
+.form-container {
+    background: #ffffff;
+    width: 350px;
+    height: 450px;
+    position: relative;
+    text-align: center;
+    padding: 20px 0;
+    margin: auto;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 10px;
+    top: 20px;
+}
+
+.form-container span {
+    font-weight: bold;
+    padding: 10px 10px 10px 10px;
+    color: rgb(255, 204, 0);
+    background-color: #000000;
+    cursor: pointer;
+    width: 100px;
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.form-btn {
+    display: inline-block;
+}
+
+.form-container form {
+    max-width: 350px;
+    padding: 0 40px;
+    position: absolute;
+    top: 130px;
+    transition: transform 1s;
+}
+
+.socials {
+    max-width: 350px;
+    padding: 0 40px;
+    position: absolute;
+    top: 60px;
+    transition: transform 1s;
+}
+
+.socials button {
+    display: inline-block;
+    margin-bottom: 5px;
+    border: none;
+    width: 90%;
+}
+
+form input {
+    width: 100%;
+    height: 30px;
+    margin: 10px 0;
+    padding: 0 10px;
+    border: 1px solid #000000;
+    font-family: 'Red Hat Display', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+}
+
+form .btn {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
+    font-family: 'Red Hat Display', sans-serif;
+    box-shadow: 0 4px 8px rgb(255, 204, 0, 0.7);
+}
+
+#signInGoogle {
+    color: #ffffff;
+    background: #34bbfa;
+    padding: 15px 15px 15px 15px;
+    font-family: 'Red Hat Display', sans-serif;
+    box-shadow: 0 4px 8px #34bbfab4;
+}
+
+#signInGoogle:hover {
+    color: #34bbfa;
+    background: #ffffff;
+}
+
+#signOut {
+    color: #ffffff;
+    background: #ff0101;
+    padding: 5px 20px 5px 20px;
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+#signOut:hover {
+    color: #fe0101;
+    background: #ffffff;
+}
+
+#signInFacebook {
+    color: #ffffff;
+    background: #002383;
+    padding: 15px 15px 15px 15px;
+    font-family: 'Red Hat Display', sans-serif;
+    box-shadow: 0 4px 8px #002383b4;
+}
+
+#signInFacebook:hover {
+    color: #002383;
+    background: #ffffff;
+    border: none;
+}
+
+#signInTwitter {
+    color: #ffffff;
+    background: #000000;
+    padding: 15px 15px 15px 15px;
+    font-family: 'Red Hat Display', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+#signInTwitter:hover {
+    color: #000000;
+    background: #ffffff;
+}
+
+form .btn:focus {
+    outline: none;
+}
+
+#loginform {
+    left: -400px;
+}
+
+#registrationform {
+    left: 0;
+}
+
+#socials {
+    right: -400px;
+}
+
+form a {
+    font-size: 12px;
+}
+
+#Indicator {
+    width: 100px;
+    border: none;
+    background: #000000;
+    height: 3px;
+    margin-top: 8px;
+    transform: translateX(100px);
+    transition: transform 1s;
+}
+
+.modal-header {
+    margin-top: 0px;
+    background-color: #000000;
+    color: rgb(255, 204, 0);
+    padding: 50px 50px 50px 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 3;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(255, 255, 255);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    transition: transform 1s;
+    border-radius: 5px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #ffffff;
+    margin: 0 0 0 auto;
+    /* 15% from the top and centered */
+    padding: 0px;
+    width: 40%;
+    /* Could be more or less, depending on screen size */
+    height: 100%;
+    border-radius: 20px;
+}
+
+.modal2-header {
+    margin-top: 0px;
+    background-color: #000000;
+    color: rgb(255, 204, 0);
+    padding: 50px 50px 50px 50px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: sticky;
+    top: 0;
+}
+
+.modal2 {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 3;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(255, 255, 255);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    transition: transform 1s;
+    border-radius: 5px;
+}
+
+/* Modal Content/Box */
+.modal-content2 {
+    background-color: #ffffff;
+    margin: 0 0 0 auto;
+    /* 15% from the top and centered */
+    padding: 0px;
+    width: 50%;
+    /* Could be more or less, depending on screen size */
+    height: auto;
+    border-radius: 20px;
+}
+
+/* The Close Button */
+.close,
+.close2 {
+    color: rgb(255, 204, 0);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close2:hover,
+.close:focus,
+.close2:focus {
+    color: #fe0101;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#myBtn {
+    border: none;
+}
+
 #menu-bar{
     font-size: 2rem;
     padding: .5rem 1rem;
@@ -71,7 +414,9 @@ header .icons a:hover{
     cursor: pointer;
     display: none;
 }
-/* end header  */
+.numnum{
+    top: 100px;
+}/* end header  */
 section{
     padding: 2rem 9%;
 }
@@ -171,6 +516,13 @@ section{
 .home #next{
     right: 3rem;
 }
+button{
+    background: black;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
 /* end home  */
 .heading{
     text-align: center;
@@ -213,6 +565,7 @@ section{
     position: absolute;
     top: .5rem;
     left: 1rem;
+    z-index: 2;
 }
 .product .box-container .box .icons a{
     height: 4.5rem;
@@ -408,47 +761,13 @@ section{
     border-radius: none;
 }
 /* end news  */
-.cridet .box{
+.credit .box{
     padding: .1rem;
     text-align: center;
 }
-.cridet .box h3{
+.credit .box h3{
     font-size: 2rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Responsive  */
 @media (max-width:768px){
     #menu-bar{
@@ -465,7 +784,7 @@ section{
     }
     header .navbar a{
         font-size: 2rem;
-        background: #fff;
+        background: purple;
         border: .1rem solid #000;
         border-radius: .5rem;
         padding: 1rem;
@@ -476,4 +795,58 @@ section{
     header .navbar.active{
         left: 0;
     }
+    .cart-info{
+        display: none;
+    }
+}
+/*cart manenoz*/
+.cart {
+    margin: 80px auto;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.cart-info {
+    display: flex;
+    flex-direction: wrap;
+}
+th{
+    text-align: left;
+    padding: 5px;
+    color: orange;
+    background: black;
+    font-weight: normal;
+}
+td{
+    padding: 10px 5px;
+}
+td input{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+td a{
+    color: orange;
+    font-size: 12px;
+}
+td img{
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+.total-price{
+    display: flex;
+    justify-content: flex-end;
+}
+.total-price table{
+    border-top: 3px solid yellow;
+    width: 100%;
+    max-width: 400px;
+}
+td:last-child{
+    text-align: right;
+}
+th:last-child{
+    text-align: right;
 }
